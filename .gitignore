@@ -1,0 +1,11 @@
+*.suo
+*.user
+*.bak
+*/bin/*
+*/obj/*
+bin/*
+obj/*
+*/cmn/*
+*/packages/*
+packages/*
+*.bin

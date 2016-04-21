@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{942B3838-D171-49C7-A7D4-57152E9B1A8F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TextTask</RootNamespace>
+    <AssemblyName>TextTask</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SmartThreadPool">
+      <HintPath>..\packages\SmartThreadPool.dll.2.2.3\lib\SmartThreadPool.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classifier\BaseClassifier.cs" />
+    <Compile Include="Classifier\BinVotingClassifier.cs" />
+    <Compile Include="Classifier\BowNaiveBayesModel.cs" />
+    <Compile Include="Classifier\CascadingClassifier.cs" />
+    <Compile Include="Classifier\NeutralZoneBinClassifier.cs" />
+    <Compile Include="Classifier\MajorityClassifier.cs" />
+    <Compile Include="Classifier\MulticlassClassifier.cs" />
+    <Compile Include="Classifier\NeutralZoneClassifier.cs" />
+    <Compile Include="Classifier\NeutralZoneReliabilityClassifier.cs" />
+    <Compile Include="Classifier\OneVsAllClassifier.cs" />
+    <Compile Include="Classifier\ReplicationWrapperClassifier.cs" />
+    <Compile Include="Classifier\TagDistrTable.cs" />
+    <Compile Include="Classifier\TextClassifier.cs" />
+    <Compile Include="Classifier\ThreePlaneOneVsAllClassifier.cs" />
+    <Compile Include="Classifier\ThreePlaneOneVsAllVotingClassifier.cs" />
+    <Compile Include="Classifier\ThreePlaneOneVsOneBinVotingClassifier.cs" />
+    <Compile Include="Classifier\ThreePlaneOneVsOneClassifier.cs" />
+    <Compile Include="Classifier\ThreePlaneOneVsOneVotingClassifier.cs" />
+    <Compile Include="Classifier\TwoPlaneClassifier.cs" />
+    <Compile Include="Classifier\VotingClassifier.cs" />
+    <Compile Include="DataSource\GoldStandardDataSource.cs" />
+    <Compile Include="DisposableExtensions.cs" />
+    <Compile Include="FoldLocalBowCrossValidator.cs" />
+    <Compile Include="DataSource\GoldfinchDataSource.cs" />
+    <Compile Include="ActionPipe.cs" />
+    <Compile Include="TaskContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sentiment.cs" />
+    <Compile Include="Task.cs" />
+    <Compile Include="TaskReport.cs" />
+    <Compile Include="DataSource\DataSource.cs" />
+    <Compile Include="General\ValidationTask.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LATINO\Latino.csproj">
+      <Project>{5b86aad5-3fea-487c-a518-4f846af09e18}</Project>
+      <Name>Latino</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
